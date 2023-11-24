@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bem Viver Cuidados</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css">
+    <style>
+        /* Estilos globais */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #edf5f5;
+            font-weight: ; /* Corrigido: Adicionei um valor para font-weight */
+            color: #388074;
+            border-radius: 30px;
+        }
+
+        .custom-container {
+            background: linear-gradient(45deg, #d1e9e3, rgb(255, 255, 255));
+            padding: 40px;
+            border-radius: 30px;
+        }
+
+        .custom-container h1 {
+            color: #297464;
+            border-radius: 30px;
+        }
+
+        .custom-container p {
+            color: #232928;
+            border-radius: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Estilos específicos para a seção de tratamentos de massagem */
+        h1 {
+            color: #297464; /* Cor para o título */
+            text-align: center; /* Centralizar o título */
+            margin-top: 30px; /* Adicionar espaço acima do título */
+        }
+
+        button {
+            margin: 10px;
+            align-items: ;
+            padding: 10px;
+            background-color: #314d4b; /* Cor azul turquesa claro */
+            color: #fff; /* Cor do texto no botão */
+            border: 4px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center; /* Centralizar o conteúdo resultante */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #395a59; border-radius: 0px;">
+        <div class="container">
+            <img src="imagens/istockphoto-914783296-612x612.jpg" alt="Logo" style="width: 80px; margin-right: 30px;">
+            <a class="navbar-brand" href="index.hml">Bem Viver Cuidados</a>
+            <button class="navbar-toggler" type="button" style="color: #232928;" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="servicoes.html">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quemsomos.html">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="depoimentos.html">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Entre em Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Tratamentos de Massagem</h1>
+        <hr>
+        <!-- Botões para cada tratamento -->
+        <button onclick="buscarTratamento('massagem-relaxante')">Massagem Relaxante</button>
+        <button onclick="buscarTratamento('massagem-desportiva')">Massagem Desportiva</button>
+        <button onclick="buscarTratamento('massagem-modeladora')">Massagem Modeladora</button>
+        <button onclick="buscarTratamento('shiatsu')">Shiatsu</button>
+        <button onclick="buscarTratamento('drenagem-linfatica')">Drenagem Linfática</button>
+
+        <h2 style="text-align: center;">Qual combina mais com você?</h2>
+
+        <div id="result"></div>
+
+        <script>
+            function buscarTratamento(tratamento) {
+                // Faz uma solicitação AJAX ao servidor
+                $.ajax({
+                    url: 'buscar_tratamento.php',
+                    type: 'GET',
+                    data: { tratamento: tratamento },
+                    success: function(response) {
+                        var tratamentoData = JSON.parse(response);
+                        exibirDadosTratamento(tratamentoData);
+                    },
+                    error: function() {
+                        console.error('Erro ao buscar tratamento.');
+                    }
+                });
+            }
+        
+            function exibirDadosTratamento(tratamento) {
+                // Exibir os dados do tratamento na página
+                var resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = '<h2>' + tratamento.nome + '</h2>' +
+                                      '<img src="' + tratamento.imagem + '" alt="' + tratamento.nome + '" width="300">' +
+                                      '<p>Preço: R$' + tratamento.preco + '</p>' +
+                                      '<p>Duração: ' + tratamento.duracao + ' minutos</p>' +
+                                      '<p>Indicações: ' + tratamento.indicacoes + '</p>';
+            }
+        </script>

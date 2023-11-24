@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Bem Viver Cuidados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+<style>
+        /* Estilos globais (mantive o mesmo CSS anterior) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #3a6f5f1d;
+            color: #333;
+        }
+
+        /* Estilo para o cabeçalho (mantive o mesmo CSS anterior) */
+        header {
+            background-color: #297464;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 80%; /* Define a largura máxima para 80% da página */
+            margin: 20px auto; /* Centraliza as seções horizontalmente e adiciona margem superior e inferior */
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 25px;
+            box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+
+        /* Estilo para títulos das seções (mantive o mesmo CSS anterior) */
+        section h1 {
+            font-size: 40px;
+            color: #297464;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo para parágrafos dentro das seções (mantive o mesmo CSS anterior) */
+        section p {
+            font-size: 26px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo para links no rodapé (mantive o mesmo CSS anterior) */
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Estilo para links no rodapé ao passar o mouse (mantive o mesmo CSS anterior) */
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para a primeira seção com imagem */
+        .custom-container {
+            background: linear-gradient(45deg, #ffffff, #00897b38);
+            padding: 40px; /* Ajustado o padding */
+            text-align: center; /* Centralizado o texto */
+        }
+
+        .custom-container h1 {
+            color: #297464;
+        }
+
+        .custom-container p {
+            color: #555958;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Custom CSS para as colunas */
+        .container {
+            display: flex;
+        }
+
+        .coluna {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .coluna-esquerda {
+            background-color: #71aa9b00;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .coluna-direita {
+            background-color: #dbb2b200;
+            
+        }
+
+        .coluna-direita img {
+            max-width: 100%; /* Define a largura máxima da imagem como 100% da largura da coluna */
+            height: auto; /* Mantém a proporção original da imagem */
+            display: block; /* Remove quaisquer espaços em branco ao redor da imagem */
+            margin: 0 auto; /* Centraliza a imagem horizontalmente na coluna */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #395a59; border-radius: 0px;">
+        <div class="container">
+            <img src="imagens/istockphoto-914783296-612x612.jpg" alt="Logo" style="width: 80px; margin-right: 30px;">
+            <a class="navbar-brand" href="index.html"> Bem Viver Cuidados</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="servicoes.html">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quemsomos.html">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="depoimentos.html">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Entre em Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="coluna coluna-esquerda">
+            <!-- Conteúdo da coluna esquerda -->
+            <h2>Conheça melhor a gente!</h2>
+            <h5>A Bem Viver Massagens tem uma história rica e inspiradora. Fundada por Maria Silva em 20XX, nossa jornada começou como um pequeno estúdio de massagem em uma sala modesta. Com dedicação e paixão pela saúde e bem-estar, Maria construiu gradualmente um negócio que se tornou sinônimo de qualidade e cuidado.
+Ao longo dos anos, expandimos nossas operações para atender a uma ampla variedade de necessidades de massagem terapêutica. Nossa missão sempre foi proporcionar alívio do estresse, relaxamento e saúde para nossos clientes. Hoje, continuamos a honrar essa missão e a crescer, trazendo o poder curativo da massagem para cada vez mais pessoas.</h5>
+           <div><img src="//logo.jpg" alt=""></div>
+        </div>
+        <div class="coluna coluna-direita">
+            <!-- Conteúdo da coluna direita -->
+            <h2><b> Bem Viver Cuidados</b> </h2>
+            <div><img src="images/logo.jpg" alt=""></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <section id="historia">
+        <h1>Nossa História</h1>
+        <p>A Bem Viver Massagens tem uma história rica e inspiradora. Fundada por Maria Silva em 20XX, nossa jornada começou como um pequeno estúdio de massagem em uma sala modesta. Com dedicação e paixão pela saúde e bem-estar, Maria construiu gradualmente um negócio que se tornou sinônimo de qualidade e cuidado.</p>
+        <p>Ao longo dos anos, expandimos nossas operações para atender a uma ampla variedade de necessidades de massagem terapêutica. Nossa missão sempre foi proporcionar alívio do estresse, relaxamento e saúde para nossos clientes. Hoje, continuamos a honrar essa missão e a crescer, trazendo o poder curativo da massagem para cada vez mais pessoas.</p>
+    </section>
+
+    <section id="profissionais">
+        <h1>Nossos Profissionais</h1>
+        <p>Nossos profissionais são o coração da Bem Viver Massagens. Eles são terapeutas altamente qualificados e experientes, apaixonados por ajudar as pessoas a se sentirem melhor em seus corpos e mentes. Todos os membros da nossa equipe passam por rigorosos treinamentos e têm certificações reconhecidas.</p>
+        <p>Acreditamos que a empatia e o cuidado são tão essenciais quanto a experiência técnica. Nossos terapeutas trabalham em estreita colaboração com os clientes para entender suas necessidades individuais e adaptar os tratamentos para alcançar os melhores resultados possíveis. Eles estão comprometidos em proporcionar a você uma experiência de massagem terapêutica excepcional.</p>
+    </section>
+
+    <section id="saude">
+        <h1>Nossa Abordagem à Saúde</h1>
+        <p>A saúde é a base de tudo o que fazemos na Bem Viver Massagens. Acreditamos que o equilíbrio entre corpo e mente é fundamental para o bem-estar. Nossos tratamentos são projetados para promover essa harmonia, aliviando dores, reduzindo o estresse e melhorando a saúde geral dos nossos clientes.</p>
+        <p>Nós nos esforçamos para ser uma parte vital da sua jornada para uma vida mais saudável e feliz. Através da massagem terapêutica, trabalhamos para restaurar o equilíbrio e a vitalidade em seu corpo, ajudando-o a enfrentar os desafios da vida com mais energia e resiliência.</p>
+    </section>
+
+    <footer>
+        <div class="align-content-lg-center">
+            João Vitor Machado Zucchetti
+        </div>
+    </footer>
+</html>

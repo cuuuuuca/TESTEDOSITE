@@ -1,0 +1,73 @@
+
+
+.my-element {
+  background-color: #ff0000;
+}
+
+.body {
+  background-color: red;
+}
+
+.image-container {
+  max-width: 500px; /* Define a largura máxima do contêiner */
+  max-height: 300px; /* Define a altura máxima do contêiner */
+  overflow: hidden; /* Oculta qualquer conteúdo que extrapole as dimensões */
+}
+
+.h1 {
+  color: rgba(66, 157, 128, 0.579);
+}
+
+.pola {
+  font-size: 60px;
+}
+
+.box {
+  background-color: rgba(243, 243, 239, 0);
+  padding: 10px;
+  margin: 40px;
+  text-align: center; /* Corrige a propriedade para centralizar conteúdo */
+}
+
+.titulo {
+  font-family: 'Oswald';
+  src: 'fonts/Oswald-Regular.ttf';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.footer {
+  background-color: #3aa088;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.custom-container {
+  background-color: #0485aa;
+  border-radius: 40px;
+  padding: 20px;
+}
+.image-container {
+  border-radius: 60px;
+  overflow: hidden;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.body {
+  font-family: Arial, sans-serif;
+}
+
+.h1 {
+  color: #333;
+  font-size: 24px;
+}
+
+.p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.4;
+}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Bem Viver Cuidados</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #64746ac1;
+            font-weight: ;
+            color: #803838;
+            border-radius: 30px;
+        }
+
+        .custom-container {
+            background: linear-gradient(45deg, #d1e9e3, rgb(255, 255, 255));
+            padding: 40px;
+            border-radius: 30px;
+        }
+
+        .custom-container h1 {
+            color: #297464;
+            border-radius: 30px;
+        }
+
+        .custom-container p {
+            color: #232928;
+            border-radius: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <style>
+        /* Custom CSS for styling */
+        body {
+            background-color: #a4d1d1b3;
+            border-radius: 30px;
+        }
+
+        .custom-container {
+            background-color: #6eb1ae00;
+            border-radius: 50px;
+            padding: 1%;
+            box-shadow: #395a59;
+            margin: 20px;
+        }
+
+        .image-container {
+            border-radius: 55px;
+            box-shadow: #adc0bf;
+            overflow: hidden;
+        }
+        .depoimento-box {
+    border-radius: 30;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 20px;
+    padding: 20px;
+}
+
+.depoimento-box p {
+    margin-bottom: 0; /* Remover margem inferior do parágrafo dentro da caixa de depoimento */
+    border-radius: 30px;
+}
+        .card-title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.5rem;
+            /* Tamanho de fonte padrão */
+            font-style: oblique;
+            color: #8baac0;
+            /* Cor padrão */
+        }
+
+        .card-text {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1rem;
+            /* Tamanho de fonte padrão */
+            font-style: oblique;
+            color: #181818;
+            /* Cor padrão */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            box-shadow: #000000, 100px;
+        }
+
+        header {
+            background-color: #c4deef;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        /* Estilo do espaço para o texto */
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 13px;
+        }
+    </style>
+</head>
+<script>
+    // Função para buscar e exibir depoimentos
+    function carregarDepoimentos() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "listar_depoimentos.php", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var depoimentos = JSON.parse(xhr.responseText);
+                var depoimentosContainer = document.getElementById("depoimentosContainer");
+                depoimentosContainer.innerHTML = "";
+
+                depoimentos.forEach(function (depoimento) {
+                    var depoimentoHTML = "<p><strong>Nome:</strong> " + depoimento.nome + "<br>" +
+                        "<strong>Email:</strong> " + depoimento.email + "<br>" +
+                        "<strong>Depoimento:</strong> " + depoimento.depoimento + "</p>";
+
+                    depoimentosContainer.innerHTML += depoimentoHTML;
+                });
+            }
+        };
+        xhr.send();
+    }
+
+    // Carrega os depoimentos quando a página é carregada
+    window.onload = carregarDepoimentos;
+</script>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <img src="imagens/istockphoto-914783296-612x612.jpg" alt="Logo" style="width: 80px; margin-right: 30px;">
+            <a class="navbar-brand" href="#">Bem Viver Cuidados</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicoes.html">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quemsomos.html">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="depoimentos.html">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Entre em Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal" id="depoimentoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Deixe seu depoimento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="depoimento.php" method="post">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="text" class="form-label">E-mail</label>
+                            <input type="text" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="depoimento" class="form-label">Depoimento</label>
+                            <textarea class="form-control" id="depoimento" name="depoimento" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="custom-container mt-4 p-5 bg-primary text-white rounded">
+        <h1>Conheça nossos clientes</h1>
+        <p>"Nossos clientes famosos não apenas escolhem a Bem Viver para seus tratamentos de bem-estar, mas também compartilham suas experiências incríveis conosco. Suas palavras refletem o compromisso incansável da nossa equipe em fornecer serviços excepcionais. Veja o que alguns deles têm a dizer:</p>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#depoimentoModal">
+            Adicionar Depoimento
+        </button>
+    </div>
+
+    <!-- Nova Seção de Depoimentos -->
+    <div class="container depoimento-box" style="background: linear-gradient(45deg, #ffffff, #00897b0d); color: #000000; border-radius: 15px; box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);">
+        <h3 class="text-center" style="font-weight: normal; color: #395a59;">Depoimentos</h3>
+        <div id="depoimentosContainer"></div>
+    </div>
+
+
+                <div class="row gy-3">
+                    <div class="col-sm">
+                        <div class="card h-100">
+                            <img src="images/image_laurales.jpg" class="card-img-top" style="border-radius: 10px;"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Laura Les</h5>
+                                <p class="card-text">Essa massagem é tão boa, deixo meu dinheiro aqui como se fosse
+                                    um <b>caixa eletrônico.</b>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="card h-100">
+                            <img src="images/image_kanye.jpg" class="card-img-top" style="border-radius: 10px;"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Kanye West</h5>
+                                <p class="card-text">Essa massagem é um <b>poder</b> que homem algum deveria ter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card h-100">
+                            <img src="images/image_charli.jpg" class="card-img-top" style="border-radius: 10px;"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Charli XCX</h5>
+                                <p class="card-text">A ansiedade para chegar na minha sessão é tão grande que me
+                                    senti briguei com meu <b>Taxi</b>. Queria ter um Porsche.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card h-100">
+                            <img src="images/image_grimes.jpg" class="card-img-top" style="border-radius: 10px;"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Grimes</h5>
+                                <p class="card-text"> Cada toque foi uma sinfonia de alívio e bem-estar, uma <b>Arte
+                                        dos Anjos.</b> Estou flutuando nas nuvens, e meu bebê também adorou.</p>
+                            </div>
+
+                        </div>
+                        <br>
+                    </div>
+                </div><br><br>
+        </div>
+<hr>
+
+        <section>
+            <div class="container" id="depoimentosContainer">
+                <!-- Aqui serão exibidos os depoimentos -->
+            </div>
+        </section>
+        </div>
+        </div>
+        <br>
+    </section>
+    </div>
+    </div><br><br>
+    </div>
+    </section>
+    </div>
+
+    <!-- Códigos anteriores de scripts e bibliotecas -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.3/dist/umd/popper.min.js" integrity="sha384-..."
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+
+
+    <script>
+        // Função para buscar e exibir depoimentos
+        function carregarDepoimentos() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "listar_depoimentos.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var depoimentos = JSON.parse(xhr.responseText);
+                    var depoimentosContainer = document.getElementById("depoimentosContainer");
+                    depoimentosContainer.innerHTML = "";
+
+                    depoimentos.forEach(function (depoimento) {
+                        var depoimentoHTML = "<p><strong>Nome:</strong> " + depoimento.nome + "<br>" +
+                            "<strong>Email:</strong> " + depoimento.email + "<br>" +
+                            "<strong>Depoimento:</strong> " + depoimento.depoimento + "</p>";
+
+                        depoimentosContainer.innerHTML += depoimentoHTML;
+                    });
+                }
+            };
+            xhr.send();
+        }
+
+        // Carrega os depoimentos quando a página é carregada
+    </script>
+    <!-- Seu script JavaScript aqui -->
+    <script>
+<div class="container depoimento-box" id="depoimentosContainer">
+    <!-- Aqui serão exibidos os depoimentos -->
+ão para buscar e exibir depoimentos
+        function carregarDepoimentos() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "listar_depoimentos.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var depoimentos = JSON.parse(xhr.responseText);
+                    var depoimentosContainer = document.getElementById("depoimentosContainer");
+                    depoimentosContainer.innerHTML = "";
+
+                    depoimentos.forEach(function (depoimento) {
+                        var depoimentoHTML = "<p><strong>Nome:</strong> " + depoimento.nome + "<br>" +
+                            "<strong>Email:</strong> " + depoimento.email + "<br>" +
+                            "<strong>Depoimento:</strong> " + depoimento.depoimento + "</p>";
+
+                        depoimentosContainer.innerHTML += depoimentoHTML;
+                    });
+                }
+            };
+            xhr.send();
+        }
+
+        // Carrega os depoimentos quando a página é carregada
+        window.onload = carregarDepoimentos;
+    </script>
+</div>
+</body>
+<!-- Códigos anteriores de scripts e bibliotecas -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.3/dist/umd/popper.min.js" integrity="sha384-..."
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+</body>
+<footer class="text-center text-white"
+    style="background-color: #56b4ae00; padding-left: 40px; padding-top: 20px; padding-bottom: 20px; border-radius: 120px;">
+    <!-- ... (conteúdo anterior) ... -->
+</footer>
+
+<style>
+    .creditos {
+        /* ... (estilos anteriores) ... */
+    }
+</style>
+
+<footer>
+    <div class="creditos">
+        <p>João Vitor Machado Zucchetti</p>
+    </div>
+</footer>
+
+</html>
